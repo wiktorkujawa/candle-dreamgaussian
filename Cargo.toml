@@ -1,0 +1,39 @@
+[package]
+name = "candle-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.6.0", features = ["cuda"] }
+hf-hub = "0.3.2"
+image = "0.25.1"  # For image processing
+reqwest = "0.11"  # For making HTTP requests
+tokio = { version = "1", features = ["full"] }  # Async runtime
+serde = { version = "1.0", features = ["derive"] }  # Serialization and deserialization
+serde_yaml = "0.8"  # To handle YAML configurations
+rayon = "1.5.1"  # Data parallelism library
+clap = "4.5.7"
+serde_json = "1.0.118"
+rmbg = { version = "0.1.0", default-features = false }
+opencv = { version = "0.92.0", features = ["clang-runtime", "videoio", "videostab","highgui"] }
+ort = { version = "1.16.3", features = ["download-binaries"] }
+candle-nn = "0.6.0"
+ndarray = "0.15.6"
+nalgebra = "0.33.0"
+ndarray-linalg = { version = "0.16", features = ["openblas-static"] }
+nom = "7.1.3"
+
+[dev-dependencies]
+rmbg = { version = "0.1.0", default-features = false }
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bin]]
+name = "main2"
+path = "src/main2.rs"
+
+[[bin]]
+name = "process"
+path = "src/process.rs"
